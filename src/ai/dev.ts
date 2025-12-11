@@ -1,3 +1,4 @@
+
 import dotenv from 'dotenv';
 
 // Load environment variables from .env.local for the Genkit process
