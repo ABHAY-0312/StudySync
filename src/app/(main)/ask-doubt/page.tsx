@@ -46,6 +46,8 @@ const formSchema = z.object({
   description: z.string().min(10, { message: "Description must be at least 10 characters." }),
 })
 
+type FormValues = z.infer<typeof formSchema>;
+
 export default function AskDoubtPage() {
   const router = useRouter()
   const { user, loading: authLoading } = useAuth()
@@ -54,7 +56,7 @@ export default function AskDoubtPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Initialize the form using react-hook-form and our Zod schema.
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       subject: "",
@@ -80,7 +82,7 @@ export default function AskDoubtPage() {
   }
 
   // This function handles the logic when the form is submitted.
-  async function onSubmit(values: z.infer<typeof formSchema>>) {
+  async function onSubmit(values: FormValues) {
     // Double-check user and db objects to prevent errors.
     if (!user || !db) {
       toast({
