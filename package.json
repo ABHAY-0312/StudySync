@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.0.0",
-    "@hookform/resolvers": "^3.9.0",
+    "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-radio-group": "^1.2.0",
@@ -25,13 +25,13 @@
     "firebase": "^11.9.1",
     "genkit": "^1.0.0",
     "lucide-react": "^0.475.0",
-    "next": "15.3.6",
+    "next": "^15.5.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.52.1",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.24.2"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/node": "^20",

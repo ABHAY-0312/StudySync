@@ -67,6 +67,15 @@ export default function LoginPage() {
     setLoading(true)
     try {
       // Use Firebase SDK to sign the user in with their email and password.
+      if (!auth) {
+        toast({
+          variant: "destructive",
+          title: "Configuration Error",
+          description: "Firebase is not configured. Please check the setup.",
+        });
+        setLoading(false);
+        return;
+      }
       await signInWithEmailAndPassword(auth, values.email, values.password)
       toast({
         title: "Login Successful",

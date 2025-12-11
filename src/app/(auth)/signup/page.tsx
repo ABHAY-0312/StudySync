@@ -75,6 +75,15 @@ export default function SignupPage() {
 
     // Step 1: Create the user account in Firebase Authentication.
     try {
+      if (!auth) {
+        toast({
+          variant: "destructive",
+          title: "Configuration Error",
+          description: "Firebase Auth is not configured. Please check the setup.",
+        });
+        setLoading(false);
+        return;
+      }
       const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
       user = userCredential.user;
       // Set the user's display name, which is stored with their auth profile.
