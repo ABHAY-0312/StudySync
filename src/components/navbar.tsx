@@ -29,6 +29,14 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     try {
+      if (!auth) {
+        toast({
+          variant: "destructive",
+          title: "Configuration Error",
+          description: "Firebase is not configured. Please check the setup.",
+        });
+        return;
+      }
       await signOut(auth);
       toast({
         title: "Logged Out",
